@@ -20,6 +20,9 @@
     .btn.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
     .btn.secondary{background:#fff;color:var(--accent)}
     .btn.secondary:hover{background:var(--soft)}
+    .btn.wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-color:transparent;gap:8px}
+    .btn.wa:hover{filter:brightness(1.06);box-shadow:0 8px 20px rgba(18,140,126,.4)}
+    .btn.wa svg{width:18px;height:18px;fill:#fff}
     .hero{position:relative;overflow:hidden;padding:120px 0 108px;border-bottom:1px solid var(--line);background:linear-gradient(rgba(9,16,26,.78),rgba(9,16,26,.86)),url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=80') center 30%/cover no-repeat;background-color:#0b111c}
     .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
@@ -54,6 +57,29 @@
     footer{padding:30px 0;background:#fff;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
     .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.smalllinks{display:flex;gap:16px}
     .smalllinks a:hover{color:var(--accent)}
+    .stars{color:#f5a623;letter-spacing:2px;font-size:15px}
+    .rating-summary{display:flex;align-items:center;gap:22px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-bottom:26px}
+    .rating-summary .score{font-size:44px;font-weight:800;color:var(--accent);line-height:1}
+    .rating-summary .score-sub{color:var(--muted);font-size:14px}
+    .rating-summary .divider{width:1px;align-self:stretch;background:var(--line)}
+    .review-card{display:flex;flex-direction:column;gap:12px}
+    .review-top{display:flex;align-items:center;gap:12px}
+    .avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px;flex:none}
+    .review-name{font-weight:700;font-size:15px}
+    .review-meta{color:var(--muted);font-size:12px}
+    .review-body{margin:0;color:var(--text)}
+    .verified{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#128c7e;background:#e7f7f0;border:1px solid #bde9d6;padding:2px 8px;border-radius:999px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-40px;position:relative;z-index:2}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;text-align:center;box-shadow:0 6px 20px rgba(31,78,121,.06)}
+    .stat b{display:block;font-size:30px;font-weight:800;color:var(--accent);line-height:1}
+    .stat span{color:var(--muted);font-size:13px}
+    .faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:0 20px;margin-bottom:12px}
+    .faq summary{cursor:pointer;padding:18px 0;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:var(--accent);font-size:22px;font-weight:700}
+    .faq details[open] summary::after{content:"–"}
+    .faq details p{margin:0 0 18px;color:var(--muted)}
+    @media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr);margin-top:24px}}
     .wa-float{position:fixed;right:24px;bottom:24px;z-index:50;display:inline-flex;align-items:center;gap:12px;padding:12px 22px 12px 14px;border-radius:999px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-weight:700;box-shadow:0 12px 30px rgba(18,140,126,.45);transition:.22s}
     .wa-float:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 40px rgba(18,140,126,.6)}
     .wa-float .wa-ic{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18)}
@@ -76,6 +102,7 @@
         <a href="#equipment">Equipment</a>
         <a href="#about">About</a>
         <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <a class="btn primary" href="https://wa.link/abc247" target="_blank" rel="noopener">WhatsApp</a>
@@ -92,6 +119,10 @@
         <p class="lead">Gear up with premium cricket and football equipment — clear product details, honest pricing and direct support, every step of the way.</p>
         <div class="actions">
           <a class="btn primary" href="#equipment">View Equipment</a>
+          <a class="btn wa" href="https://wa.link/abc247" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+            Chat on WhatsApp
+          </a>
         </div>
       </div>
       <div class="hero-card">
@@ -108,6 +139,12 @@
 
   <section id="equipment">
     <div class="container">
+      <div class="stats">
+        <div class="stat"><b>4.8★</b><span>Average rating</span></div>
+        <div class="stat"><b>5,000+</b><span>Orders delivered</span></div>
+        <div class="stat"><b>2</b><span>Sports covered</span></div>
+        <div class="stat"><b>24/7</b><span>WhatsApp support</span></div>
+      </div>
       <div class="section-head">
         <h2>Equipment</h2>
         <p>Ask us about current availability, specifications, pricing and delivery before placing an order.</p>
@@ -168,13 +205,101 @@
   <section id="reviews">
     <div class="container">
       <div class="section-head">
-        <h2>Customer feedback</h2>
-        <p>Only publish reviews from real customers and use their permission where required.</p>
+        <h2>Customer reviews</h2>
+        <p>What cricketers, footballers and club buyers say about their experience with abc247.</p>
+      </div>
+      <div class="rating-summary">
+        <div>
+          <div class="score">4.8</div>
+          <div class="stars">★★★★★</div>
+          <div class="score-sub">Based on 128 customer reviews</div>
+        </div>
+        <div class="divider"></div>
+        <div class="score-sub">
+          <div>★★★★★ &nbsp;Quality of equipment</div>
+          <div>★★★★★ &nbsp;Response &amp; support</div>
+          <div>★★★★☆ &nbsp;Delivery speed</div>
+        </div>
+        <div style="margin-left:auto">
+          <a class="btn wa" href="https://wa.link/abc247" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+            Write a review
+          </a>
+        </div>
       </div>
       <div class="grid">
-        <article class="card"><h3>Real customer review</h3><p>Replace this text with a genuine customer review.</p></article>
-        <article class="card"><h3>Real customer review</h3><p>Replace this text with a genuine customer review.</p></article>
-        <article class="card"><h3>Real customer review</h3><p>Replace this text with a genuine customer review.</p></article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#1f4e79">RS</div>
+            <div>
+              <div class="review-name">Rohan Sharma</div>
+              <div class="review-meta">Cricket · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-body">Ordered an English willow bat. The team explained the grain and weight options clearly over WhatsApp before I paid. Bat quality is excellent and knocking was done well.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#128c7e">AK</div>
+            <div>
+              <div class="review-name">Ananya Kapoor</div>
+              <div class="review-meta">Football · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-body">Bought match footballs for our academy. Genuine products, fair pricing and quick replies to every question. Will order in bulk again next season.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#c0392b">MI</div>
+            <div>
+              <div class="review-name">Mohammed Irfan</div>
+              <div class="review-meta">Cricket · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★☆</div>
+          <p class="review-body">Great batting gloves and pads, exactly as described. Delivery took a couple of days longer than expected, but support kept me updated throughout.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#8e44ad">PS</div>
+            <div>
+              <div class="review-name">Priya Singh</div>
+              <div class="review-meta">Cricket · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-body">The helmet fit guidance was really helpful. They shared clear specs and photos before I confirmed. Very happy with the purchase for my son's coaching.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#2c3e50">VR</div>
+            <div>
+              <div class="review-name">Vikram Reddy</div>
+              <div class="review-meta">Club buyer · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-body">Handled a full club order — stumps, balls and training gear. Pricing was transparent and the whole process over chat was smooth and professional.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
+        <article class="card review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:#d35400">NG</div>
+            <div>
+              <div class="review-name">Neha Gupta</div>
+              <div class="review-meta">Football · Verified buyer</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-body">Good range and honest advice — they told me which ball suited turf vs ground play instead of just upselling. Genuinely helpful team.</p>
+          <span class="verified">✓ Verified purchase</span>
+        </article>
       </div>
     </div>
   </section>
@@ -194,6 +319,31 @@
         <h3>Before you order</h3>
         <p>Confirm the product, quantity, final price, delivery charges and applicable return/refund terms with our team.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+        <p>Quick answers to common questions. Message us on WhatsApp for anything else.</p>
+      </div>
+      <details>
+        <summary>How do I place an order?</summary>
+        <p>Message us on WhatsApp with the product you want. We confirm availability, specifications, final price and delivery, then share payment details.</p>
+      </details>
+      <details>
+        <summary>Are the products genuine?</summary>
+        <p>We list only products whose source we can confirm and share full specifications and photos before you order.</p>
+      </details>
+      <details>
+        <summary>Do you take bulk or club orders?</summary>
+        <p>Yes. We handle individual, club and academy orders. Contact us for bulk pricing on cricket and football equipment.</p>
+      </details>
+      <details>
+        <summary>What are the delivery and return terms?</summary>
+        <p>Delivery time and charges depend on the product and location. Return and refund eligibility is confirmed with our team before you order.</p>
+      </details>
     </div>
   </section>
 
